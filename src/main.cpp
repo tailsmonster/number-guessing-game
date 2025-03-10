@@ -1,3 +1,7 @@
+#include <logic.hpp>
 #include <iostream>
 #include <cstdlib>
-#include <logic.hpp>
+
+int main(){
+  start_msg();
+}
