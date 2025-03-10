@@ -1,4 +1,4 @@
-// #include <logic.hpp>
+#include "../include/logic.hpp"
 
 #include <iostream>
 #include <cstdlib>
@@ -11,26 +11,20 @@ int getTop() {
     top += 50;
   return top;
 }
-int top = getTop();
 
-int getAnswer() { 
+int getAnswer(int top) { 
   srand(time(0));
   int answer = rand() % top;
   if (answer == 0) 
     answer += 1;
   return answer;
 }
-int answer = getAnswer();
 
-int getLow() { 
+int getLow(int answer) { 
   srand(time(0));
   return rand() % answer;
 }
-int bottom = getLow();
 
-
-void start_msg() {
-  std::cout << "Hey, let's play a game :3\n\nI'm gonna think of a number between " << low << " and " << high << std::endl;
-  // std::cout << top << '\n' <<  answer << '\n' << bottom;
-  // return 0;
+void start_msg(int low, int top) {
+  std::cout << "Hey, let's play a game :3\n\nI'm gonna think of a number between " << low << " and " << top << std::endl;
 }
