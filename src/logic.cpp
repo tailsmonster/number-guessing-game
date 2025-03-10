@@ -3,7 +3,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <typeinfo>
 
+// init
 int getTop() { 
   srand(time(0));
   int top = rand() % 101;
@@ -25,6 +27,61 @@ int getLow(int answer) {
   return rand() % answer;
 }
 
-void start_msg(int low, int top) {
+// Mesages
+void startMsg(int low, int top) {
   std::cout << "Hey, let's play a game :3\n\nI'm gonna think of a number between " << low << " and " << top << std::endl;
+}
+
+int inputMsg(int low, int top) {
+  int guess;
+  std::cout << "Guess which number am I thinking of:" << std:endl;
+  bool cond = true;
+  std::cin >> guess;
+  while (cond_1) {
+    std::cin >> guess;
+    if (std::cin.fail()) {  // If input is not a valid integer
+      std::cin.clear(); // Clear error flag
+      std::cin.ignore(10000, '\n'); // Ignore invalid input
+      std::cout << "Uhh, I said to put in a number >:( :" << std::endl;
+    } else if (guess <= low || guess >= top){
+      std::cout << "That is outside the range I set for you! Please choose a number BETWEEN " << low << " and " << top <<":" << std::endl;
+    } else {
+      cond = false;
+    }
+  }
+  return guess;
+}
+
+void hintMsg(int guess, int answer) {
+  if (guess > answer) 
+    std::cout << "You're number is too high! Try guessing lower!";
+  else
+    std::cout << "You're number is too low! Try guessing higher!";
+}
+
+void wrongMsg(int guess, int answer) {
+  std::cout << "Wrong!!!!!!! ;3";
+  hintMsg(guess, answer);
+}
+
+void tauntMsg(int attempts) {
+  std::cout << "O M G, how have you not guessed it after " << attempts << "??";
+}
+
+void winMsg(int attempts, int guess) {
+  if (attempts == 1) 
+    std::cout << "Woahh! You got it! The correct answer was " << guess << ", and it only took you 1 attempt! Impressive!" << std::endl;
+  else if (attempts <= 6)
+    std::cout << "Your guess of " << guess << " was correct! And it only took you " << attempts " attempts! :p" << std::endl;
+  else
+    std::cout << "Oof, it took you like " << attempts << "attempts to get it right... " << guess << "was clearly the answer,,, smh vro, get better :(" << std::endl;
+}
+
+// Game
+bool gameloop(int guess, int answer) {
+  if (guess != answer) {
+    return true;
+  } else {
+    return false;
+  }
 }
