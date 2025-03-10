@@ -65,7 +65,7 @@ void wrongMsg(int guess, int answer) {
 }
 
 void tauntMsg(int attempts) {
-  std::cout << "O M G, how have you not guessed it after " << attempts << "??";
+  std::cout << "O M G, how have you not guessed it after " << attempts << "??" << std::endl;
 }
 
 void winMsg(int attempts, int guess) {
